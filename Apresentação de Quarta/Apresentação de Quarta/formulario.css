@@ -1,0 +1,352 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZW1hfGVufDB8fDB8fHww');
+    background-size: cover;
+}
+
+.formulario {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    z-index: 1;
+
+}
+
+.ingressos {
+    position: absolute;
+    top: 60%;
+    left: 145%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+
+
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario label {
+    margin-bottom: 5px;
+    color: #fff
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="tel"],
+.formulario input[type="number"],
+.formulario select {
+    margin-bottom: 0px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: #eee;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 10em;
+    border-radius: 1rem;
+    color: #4b0606;
+    cursor: pointer;
+}
+
+.button:active {
+    color: white;
+    box-shadow: 0 0.2rem #dfd9d9;
+}
+
+.button:hover:not(:disabled) {
+    background: #4b0606;
+    color: white;
+
+}
+
+
+
+.outer-scratch,
+.inner-scratch {
+    height: inherit;
+}
+
+.outer-scratch:after,
+.inner-scratch:after {
+    content: '';
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 100px;
+    opacity: .08;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/662025/scratch.png') repeat center center;
+    -webkit-animation: scratch 0.45s steps(1) infinite;
+    animation: scratch 0.45s steps(1) infinite;
+}
+
+.inner-scratch:after {
+    left: 30%;
+    -webkit-animation: inner-scratch 2s infinite;
+    animation: inner-scratch 2s infinite;
+}
+
+/*Granulado /imagem do granulado com webkit*/
+.grain:after {
+    content: '';
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    opacity: .11;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/662025/grain.jpg') repeat center center;
+    -webkit-animation: grain 0.5s steps(1) infinite;
+    animation: grain 0.5s steps(1) infinite;
+}
+
+/*  TÍTULO  */
+h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 3em;
+    text-align: center;
+    color: #fff;
+    -webkit-animation: 3s fade;
+    animation: 3s fade;
+
+    span {
+        display: inline-block;
+        position: relative;
+        padding: .5em 1em;
+
+        &:before {
+            display: block;
+            content: '';
+            width: 110%;
+            margin-left: -5%;
+            margin-bottom: 5%;
+            border-top: 1px solid #fff;
+            -webkit-animation: 2.5s draw;
+            animation: 2.5s draw;
+        }
+
+        &:after {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            border-bottom: 1px solid #fff;
+            -webkit-animation: 2.5s draw-bottom;
+            animation: 2.5s draw-bottom;
+        }
+    }
+}
+
+/* Animações de granulado */
+
+@keyframes grain {
+
+    0%,
+    100% {
+        transform: translate(0, 0, 0);
+    }
+
+    10% {
+        transform: translate(-1%, -1%);
+    }
+
+    20% {
+        transform: translate(1%, 1%);
+    }
+
+    30% {
+        transform: translate(-2%, -2%);
+    }
+
+    40% {
+        transform: translate(3%, 3%);
+    }
+
+    50% {
+        transform: translate(-3%, -3%);
+    }
+
+    60% {
+        transform: translate(4%, 4%);
+    }
+
+    70% {
+        transform: translate(-4%, -4%);
+    }
+
+    80% {
+        transform: translate(2%, 2%);
+    }
+
+    90% {
+        transform: translate(-3%, -3%);
+    }
+}
+
+
+@keyframes scratch {
+
+    0%,
+    100% {
+        transform: translateX(0);
+        opacity: 0.075;
+    }
+
+    10% {
+        transform: translateX(-1%);
+    }
+
+    20% {
+        transform: translateX(1%);
+    }
+
+    30% {
+        transform: translateX(-2%);
+        opacity: 0.09;
+    }
+
+    40% {
+        transform: translateX(3%);
+    }
+
+    50% {
+        transform: translateX(-3%);
+        opacity: 0.05;
+    }
+
+    60% {
+        transform: translateX(8%);
+    }
+
+    70% {
+        transform: translateX(-3%);
+    }
+
+    80% {
+        transform: translateX(10%);
+        opacity: 0.02;
+    }
+
+    90% {
+        transform: translateX(-2%);
+    }
+}
+
+
+@keyframes inner-scratch {
+    0% {
+        transform: translateX(0);
+        opacity: 0.08;
+    }
+
+    10% {
+        transform: translateX(-1%);
+    }
+
+    20% {
+        transform: translateX(1%);
+    }
+
+    30% {
+        transform: translateX(-2%);
+    }
+
+    40% {
+        transform: translateX(3%);
+    }
+
+    50% {
+        transform: translateX(-3%);
+        opacity: 0.06;
+    }
+
+    60% {
+        transform: translateX(8%);
+    }
+
+    70% {
+        transform: translateX(-3%);
+    }
+
+    80% {
+        transform: translateX(10%);
+        opacity: 0.03;
+    }
+
+    90% {
+        transform: translateX(20%);
+    }
+
+    100% {
+        transform: translateX(30%);
+    }
+}
+
+
+/*Animação do titulo  */
+@keyframes draw {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 110%;
+    }
+}
+
+
+@keyframes draw-bottom {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
